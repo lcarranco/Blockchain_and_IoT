@@ -15,7 +15,7 @@ After doing many hours of research I finally came across an excellent repo to in
 [Command Line Options](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
 
 ## First Boot
-###### Update Locale
+##### Update Locale
 
 Must be in root
 
@@ -29,6 +29,8 @@ Configure your timezone:
 
 [Link](https://github.com/debian-pi/raspbian-ua-netinst)
 
-###### Disable screen from turning off
+##### Disable screen from turning off
 
 \*Make sure you are logged into your created user account
+
+[Link](https://raspberrypi.stackexchange.com/a/59758)
