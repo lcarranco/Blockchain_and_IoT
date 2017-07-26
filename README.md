@@ -20,9 +20,11 @@ __Update Locale__
 Must be in root
 
 Configure your default locale:
+
 `dpkg-reconfigure locales`
 
 Configure your timezone:
+
 `dpkg-reconfigure tzdata`
 
 [Link](https://github.com/debian-pi/raspbian-ua-netinst)
