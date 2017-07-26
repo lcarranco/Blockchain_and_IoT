@@ -33,4 +33,4 @@ Configure your timezone:
 
 \*Make sure you are logged into your created user account
 
-[Link](https://raspberrypi.stackexchange.com/a/59758)
+[Link](https://raspberrypi.stackexchange.com/a/61080)
