@@ -25,4 +25,6 @@ Configure your default locale:
 Configure your timezone:
 `dpkg-reconfigure tzdata`
 
+[Link](https://github.com/debian-pi/raspbian-ua-netinst)
+
 [__Disable screen from turning off__](https://raspberrypi.stackexchange.com/questions/752/how-do-i-prevent-the-screen-from-going-blank)
