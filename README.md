@@ -12,7 +12,8 @@ When this project was initially taken on I assumed it was going to be a plug and
 
 After doing many hours of research I finally came across an excellent repo to install Ethereum on nearly every model of Raspberry Pi. [Link](https://github.com/EthEmbedded/Raspi-Eth-Install)
 
-[Command Line Options](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
+### Command line
+Command line options can by accessed by `./geth help` and/or the following link: [Command Line Options](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
 
 ## First Boot
 ### Update Locale
@@ -26,8 +27,15 @@ Configure your timezone: `dpkg-reconfigure tzdata`
 [Link](https://github.com/debian-pi/raspbian-ua-netinst)
 
 ### Disable screen from turning off
+\*Make sure you are logged into your created user account\*
 
-\*Make sure you are logged into your created user account
+`cd /boot`
+
+`nano cmdline.txt`
+
+Append to end of file
+
+`consoleblank=0`
 
 [Link](https://raspberrypi.stackexchange.com/a/61080)
 
@@ -69,7 +77,7 @@ Network ID 786 was chosen as an example in the book.
 ### Genesis file
 The genesis file contains necessary fields required for a custom genesis block. This is the first block in the network and does not point to any previous block. The Ethereum protocal does rigorous checking to ensure that no other node on the internet can participate in the consensus mechanism, unless they have the same genesis block.
 
-Here is a custom genesis file that was chosen as an example in the book. This file can be saved in a text file with the JSON extenstion.
+Here is a custom genesis file that was chosen as an example in the book. This file can be saved in a text file with the JSON extenstion. For example, `privategenesis.json`
 ```
 {
     "nonce": "0x0000000000000042",
@@ -84,3 +92,27 @@ Here is a custom genesis file that was chosen as an example in the book. This fi
 }
 ```
 Ether can be preallocated by specifying beneficiary addresses and the amount of Wei in `alloc`, but it is usually not necessary because being on the private network, either can be mined very quickly.
+
+### Data Directory
+This is the directory where the blockchain data for the private Ethereum network will be saved. The example chosen in the book is `~/.ethereum/privatenet`
+
+In the geth client, many parameters are specified in order to launch, fine-tune the configuration, and launch the private network. Here are the flags:
+
+### Flags
+* `--nodiscover`: Ensures that the node is not automatically discoverable if it happens to have the same genesis file and Network ID.
+* `--maxpeers`: Used to specify the number of peers allowed to be connected to the PrivateNet. If set to 0, then no one will be able to connect. Setting to 0 can be used for private testing.
+* `--rpc`: This is used to enable the RPC interface in geth.
+* `--rpcapi`: Takes a list of API's to be allowed as a parameter. Examples include `eth,web3` which will enable the web3 and eth interface over RPC.
+* `--rpcport`: Sets up the TCP RPC port. For example, 9999.
+* `--rpccorsdomain`: Specifies the URL that is allowed to connect to th private geth node and perform RPC operations.
+* `--port`: Specifies the TCP port that will be used to listen to the incoming connections from other peers.
+* `--identity`: A string that specifies the name of a private node.
+
+### Static Nodes
+If there is a need to connect to a specific set of peers, then these nodes can be added to a file where the `chaindata` and `keystore` files are saved. For example, can be saved in the `~/.ethereum/privatenet` directory. The filename should be named `static-nodes.json`. This can be valuable in a private network. Here is an example of the json file:
+```
+[
+"enode://44352ede5b9e792e437c1c0431c1578ce3676a87e1f588434aff1299d30325c233c8d426fc57a25380481c8a36fb3be2787375e932fb4885885f6452f6efa77f@xxx.xxx.xxx.xxx:TCP_PORT"
+]
+```
+`xxx` is the public IP address and `TCP_Port` can be any valid and available TCP port on the system. The long hex string is the node ID.
