@@ -17,8 +17,7 @@ Command line options can by accessed by `./geth help` and/or the following link:
 
 ## First Boot
 ### Update Locale
-
-Must be in root
+\*Must be in root
 
 Configure your default locale: `dpkg-reconfigure locales`
 
@@ -53,7 +52,6 @@ Connect to TestNet: `./geth --testnet`
 ## PrivateNet
 Allows creation of an independent private network that can be used as a distributed ledger between participating entities and for the development and testing of smart contracts. Create an entirely new blockchain.
 
-### Setting up PrivateNet
 Need three components to create PrivateNet
 1. Network ID
 2. Genesis file
@@ -116,3 +114,14 @@ If there is a need to connect to a specific set of peers, then these nodes can b
 ]
 ```
 `xxx` is the public IP address and `TCP_Port` can be any valid and available TCP port on the system. The long hex string is the node ID.
+
+## Starting Private Network
+### Create privategenesis.json
+`cd /go-ethereum/build/bin`
+
+` mkdir privether`
+
+`nano privategenesis.json`
+ 
+### Start private network
+`./geth --datadir ~/.ethereum/privatenet init ./privether/privategenesis.json`
