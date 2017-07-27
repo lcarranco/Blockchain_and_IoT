@@ -49,7 +49,7 @@ Used by developers or users as a test platform to test smart contrats and other 
 
 Connect to TestNet: `./geth --testnet`
 
-## PrivateNet (Ethereum Version 1.5?)
+## PrivateNet (Ethereum Version 1.5.6)
 Allows creation of an independent private network that can be used as a distributed ledger between participating entities and for the development and testing of smart contracts. Create an entirely new blockchain.
 
 Need three components to create PrivateNet
