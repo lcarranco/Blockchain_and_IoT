@@ -75,7 +75,7 @@ Network ID 786 was chosen as an example in the book.
 ### Genesis file
 The genesis file contains necessary fields required for a custom genesis block. This is the first block in the network and does not point to any previous block. The Ethereum protocal does rigorous checking to ensure that no other node on the internet can participate in the consensus mechanism, unless they have the same genesis block.
 
-Here is a custom genesis file that was chosen as an example in the book. This file can be saved in a text file with the JSON extenstion. For example, `privategenesis.json`
+Here is a custom genesis file that was chosen as an example in the book. This file can be saved in a text file with the JSON extenstion. For example, `privategenesis156.json`
 ```
 {
     "nonce": "0x0000000000000042",
@@ -123,12 +123,21 @@ If there is a need to connect to a specific set of peers, then these nodes can b
 `nano privategenesis.json`
  
 ### Start private network
-`./geth --datadir ~/.ethereum/privatenet init ./privether/privategenesis.json`
+`./geth --datadir ~/.ethereum/privatenet init ./privether/privategenesis156.json`
+
+### Received an error
+Received an error when trying to run `./geth init ./privether/privategenesis156.json`.
+
+The error `Fatal: invalid genesis file: json: cannot unmarshal hex string of odd length into Go value of type hexutil.Bytes`
+
+I searched for an answer and came across [this helpful answer.](https://ethereum.stackexchange.com/a/15314/16203)
+
+Since I have Geth version 1.7.0, I neede to use an updated json file.
 
 ## PrivateNet (Ethereum Version 1.7.0 - Unstable)
 [Link](https://github.com/ethereum/go-ethereum/wiki/Private-network)
 
-`genesis.json` file
+`genesis170.json` file
 ```
 {
     "config": {
@@ -146,6 +155,11 @@ If there is a need to connect to a specific set of peers, then these nodes can b
 }
 ```
 
-To create a database using the above genesis block, run the following command
+To create a database using the above genesis block, run the following command. This will import and set canonical genesis block for your chain.
 
-`geth --datadir path/to/custom/data/folder init genesis.json`
+`./geth --datadir ~/.ethereum/privatenet init genesis170.json`
+
+Set network ID. Future runs of geth on this data directory will use the genesis block you have defined.
+
+`./geth --datadir ~/.ethereum/privatenet --networkid value`
+
