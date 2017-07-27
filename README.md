@@ -49,7 +49,7 @@ Used by developers or users as a test platform to test smart contrats and other 
 
 Connect to TestNet: `./geth --testnet`
 
-## PrivateNet
+## PrivateNet (Ethereum Version 1.5?)
 Allows creation of an independent private network that can be used as a distributed ledger between participating entities and for the development and testing of smart contracts. Create an entirely new blockchain.
 
 Need three components to create PrivateNet
@@ -115,7 +115,6 @@ If there is a need to connect to a specific set of peers, then these nodes can b
 ```
 `xxx` is the public IP address and `TCP_Port` can be any valid and available TCP port on the system. The long hex string is the node ID.
 
-## Starting Private Network
 ### Create privategenesis.json
 `cd /go-ethereum/build/bin`
 
@@ -125,3 +124,28 @@ If there is a need to connect to a specific set of peers, then these nodes can b
  
 ### Start private network
 `./geth --datadir ~/.ethereum/privatenet init ./privether/privategenesis.json`
+
+## PrivateNet (Ethereum Version 1.7.0 - Unstable)
+[Link](https://github.com/ethereum/go-ethereum/wiki/Private-network)
+
+`genesis.json` file
+```
+{
+    "config": {
+        "chainId": 15,
+        "homesteadBlock": 0,
+        "eip155Block": 0,
+        "eip158Block": 0
+    },
+    "difficulty": "200000000",
+    "gasLimit": "2100000",
+    "alloc": {
+        "7df9a875a174b3bc565e6424a0050ebc1b2d1d82": { "balance": "300000" },
+        "f41c74c9ae680c1aa78f42e5647a62f353b7bdde": { "balance": "400000" }
+    }
+}
+```
+
+To create a database using the above genesis block, run the following command
+
+`geth --datadir path/to/custom/data/folder init genesis.json`
