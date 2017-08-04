@@ -12,6 +12,8 @@ When this project was initially taken on I assumed it was going to be a plug and
 
 After doing many hours of research I finally came across an excellent repo to install Ethereum on nearly every model of Raspberry Pi. [Link](https://github.com/EthEmbedded/Raspi-Eth-Install)
 
+Here is the more detailed documenation of [raspbian-ua-netinst](https://github.com/debian-pi/raspbian-ua-netinst)
+
 ### Command line
 Command line options can by accessed by `./geth help` and/or the following link: [Command Line Options](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
 
