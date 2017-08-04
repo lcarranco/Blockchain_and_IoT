@@ -21,7 +21,7 @@ Command line options can by accessed by `./geth help` and/or the following link:
 ### Update Locale
 \*Must be in root
 
-Configure your default locale: `dpkg-reconfigure locales`
+Configure your default locale: `dpkg-reconfigure locales` to
 
 Configure your timezone: `dpkg-reconfigure tzdata`
 
