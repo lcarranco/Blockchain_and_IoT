@@ -181,7 +181,7 @@ After starting the JavaScript environment you can check to see if the other node
 
 `admin.peers`
 
-##Extra Info
+## Extra Info
 To install a GUI for any device you can use [LXDE](http://lxde.org/). To install, run the following commands. Each of them will take some time. LXDE package very likely depends on the [XORG](https://www.x.org/wiki/) package.
 `sudo apt-get install xorg`
 `sudo apt-get install lxde`
