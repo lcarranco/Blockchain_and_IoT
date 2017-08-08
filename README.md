@@ -134,7 +134,7 @@ The error `Fatal: invalid genesis file: json: cannot unmarshal hex string of odd
 
 I searched for an answer and came across [this helpful answer.](https://ethereum.stackexchange.com/a/15314/16203)
 
-Since I have Geth version 1.7.0, I neede to use an updated json file.
+Since I have Geth version 1.7.0, I needed to use an updated json file.
 
 ## PrivateNet (Ethereum Version 1.7.0 - Unstable)
 [Link](https://github.com/ethereum/go-ethereum/wiki/Private-network)
