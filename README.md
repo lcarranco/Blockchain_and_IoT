@@ -159,7 +159,7 @@ I searched for an answer and came across [this helpful answer.](https://ethereum
 Since I have Geth version 1.7.0, I needed to use an updated json file.
 
 ## PrivateNet (Ethereum Version 1.7.0 Unstable)
-[Link](https://github.com/ethereum/go-ethereum/wiki/Private-network)
+[Private Network Set Up](https://github.com/ethereum/go-ethereum/wiki/Private-network)
 
 `genesis170.json` file
 ```
@@ -198,6 +198,8 @@ Need to get enode from starter node. `enode` is supplied when you run `./geth --
 Set network ID. Future runs of geth on this data directory will use the genesis block you have defined. The last command `console` starts an interactive JavaScript environment
 
 `./geth --datadir ~/.ethereum/privatenet --networkid yyy console`
+
+[JavaScript Console Commands](https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#eth)
 
 After starting the JavaScript environment you can check to see if the other nodes are connected to each other on the private blockchain by running
 
