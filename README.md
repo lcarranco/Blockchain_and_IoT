@@ -161,7 +161,19 @@ To create a database using the above genesis block, run the following command. T
 
 `./geth --datadir ~/.ethereum/privatenet init genesis170.json`
 
-Set network ID. Future runs of geth on this data directory will use the genesis block you have defined.
+Need to change port number on other node using:
 
-`./geth --datadir ~/.ethereum/privatenet --networkid value`
+`./geth --port xxx`
+
+Need to get ip address from starter node
+
+`ip link`
+
+Need to get enode from starter node. `enode` is supplied when you run `./geth --datadir ~/.ethereum/privatenet --networkid yy`
+
+`./geth --bootnodes enode`
+
+Set network ID. Future runs of geth on this data directory will use the genesis block you have defined. The last command `console` starts an interactive JavaScript environment
+
+`./geth --datadir ~/.ethereum/privatenet --networkid yyy console`
 
