@@ -173,13 +173,15 @@ Need to get enode from starter node. `enode` is supplied when you run `./geth --
 
 `./geth --bootnodes enode`
 
-Needed to find an easier way to get enode information instead of copying the long string character by character
-`sudo apt-get install xorg`
-`sudo apt-get install lxde`
-
 Set network ID. Future runs of geth on this data directory will use the genesis block you have defined. The last command `console` starts an interactive JavaScript environment
 
 `./geth --datadir ~/.ethereum/privatenet --networkid yyy console`
 
 After starting the JavaScript environment you can check to see if the other nodes are connected to each other on the private blockchain by running
+
 `admin.peers`
+
+##Extra Info
+To install a GUI for any device you can use [LXDE](http://lxde.org/). To install, run the following commands. Each of them will take some time. LXDE package very likely depends on the [XORG](https://www.x.org/wiki/) package.
+`sudo apt-get install xorg`
+`sudo apt-get install lxde`
