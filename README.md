@@ -161,6 +161,8 @@ Since I have Geth version 1.7.0, I needed to use an updated json file.
 ## PrivateNet (Ethereum Version 1.7.0 Unstable)
 [Private Network Set Up](https://github.com/ethereum/go-ethereum/wiki/Private-network)
 
+[JavaScript Console Commands](https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#eth)
+
 `genesis170.json` file
 ```
 {
@@ -187,19 +189,29 @@ Need to change port number on any other node wanting to connect to the blockchai
 
 `./geth --port xxxx`
 
-Need to get ip address from ethernet/router/WiFi address using the command:
+Need to get ip address from ethernet/router/WiFi address from any node connected to the blockchain using the command. If we are not on the same internal network then the node already connected to the blockchain needs to enable port forwarding:
 
 `ip address`
 
-Need to get enode from starter node. `enode` is supplied when you run `./geth --datadir ~/.ethereum/privatenet --networkid yy`
+Need to get enode from any node connected to the blockchain and supply it to `bootnodes` command. `enode` is supplied when you run `./geth --datadir ~/.ethereum/privatenet --networkid yyyy` or when the JavaScript console is running with the command `admin.nodeInfo`
 
 `./geth --bootnodes enode`
 
+or
+
+when JavaScript console is started (see directly below), can use the command `admin.addPeer(nodeURL)` to connect to the blockchain.
+
+Pass a `nodeURL` to connect a to a peer on the network. The `nodeURL` needs to be in [enode URL format](https://github.com/ethereum/wiki/wiki/enode-url-format). geth will maintain the connection until it shuts down and attempt to reconnect if the connection drops intermittently.
+
+You can find out your own node URL by using nodeInfo or looking at the logs when the node boots up e.g.:
+
+```
+[P2P Discovery] Listening, enode://6f8a80d14311c39f35f516fa664deaaaa13e85b2f7493f37f6144d86991ec012937307647bd3b9a82abe2974e1407241d54947bbb39763a4cac9f77166ad92a0@54.169.166.226:30303
+```
+
 Set network ID. Future runs of geth on this data directory will use the genesis block you have defined. The last command `console` starts an interactive JavaScript environment
 
-`./geth --datadir ~/.ethereum/privatenet --networkid yyy console`
-
-[JavaScript Console Commands](https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#eth)
+`./geth --datadir ~/.ethereum/privatenet --networkid yyyy console`
 
 After starting the JavaScript environment you can check to see if the other nodes are connected to each other on the private blockchain by running
 
