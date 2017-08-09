@@ -170,7 +170,7 @@ Since I have Geth version 1.7.0, I needed to use an updated json file.
         "eip155Block": 0,
         "eip158Block": 0
     },
-    "difficulty": "200000000",
+    "difficulty": "200",
     "gasLimit": "2100000",
     "alloc": {
         "7df9a875a174b3bc565e6424a0050ebc1b2d1d82": { "balance": "300000" },
@@ -183,13 +183,13 @@ To create a database using the above genesis block, run the following command. T
 
 `./geth --datadir ~/.ethereum/privatenet init genesis170.json`
 
-Need to change port number on other node using:
+Need to change port number on any other node wanting to connect to the blockchain using:
 
-`./geth --port xxx`
+`./geth --port xxxx`
 
-Need to get ip address from starter node
+Need to get ip address from ethernet/router/WiFi address using the command:
 
-`ip link`
+`ip address`
 
 Need to get enode from starter node. `enode` is supplied when you run `./geth --datadir ~/.ethereum/privatenet --networkid yy`
 
