@@ -7,6 +7,28 @@ This is a simple example and requires a more rigorously-tested version in order 
 
 This idea came from the book *Mastering Blockchain* by Imran Bashir.
 
+## Table of Contents
+
+- [Setting up Raspberry Pi](#setting-up-raspberry-pi)
+  - [Command line](#command-line)
+- [First Boot](#first-boot)
+  - [Update Locale](#update-locale)
+  - [Disable screen from turning off](#disable-screen-from-turning-off)
+- [Geth Account Creation](#geth-account-creation)
+- [MainNet](#mainnet)
+- [TestNet (Ropsten)](#testnet-ropsten)
+- [PrivateNet (Ethereum Version 1.5.6)](#privatenet-ethereum-version-156)
+  - [Network ID](#network-id)
+  - [Genesis file](#genesis-file)
+  - [Data Directory](#data-directory)
+  - [Flags](#flags)
+  - [Static Nodes](#static-nodes)
+  - [Create privategenesis.json](#create-privategenesisjson)
+  - [Start private network](#start-private-network)
+  - [Received an error](#received-an-error)
+- [PrivateNet (Ethereum Version 1.7.0 Unstable)](#privatenet-ethereum-version-170-unstable)
+- [Extra Info](#extra-info)
+
 ## Setting up Raspberry Pi
 When this project was initially taken on I assumed it was going to be a plug and play type of scenario. I was wrong. The reason is because I have an older model of the Raspberry Pi and I had to do a lot of research to find work arounds. This is mostly due to Ethereum clients being developed for the newer models Raspberry Pi 2 and Raspberry Pi 3. I have Raspberry Pi Model B. [Here is a handy guide](https://www.element14.com/community/community/raspberry-pi/blog/2016/11/21/how-to-identify-which-model-of-the-raspberry-pi-you-have) on how to identify which Raspberry Pi model you have.
 
@@ -14,7 +36,7 @@ After doing many hours of research I finally came across an excellent repo to in
 
 Here is the more detailed documenation of [raspbian-ua-netinst](https://github.com/debian-pi/raspbian-ua-netinst)
 
-### Command line
+### Command Line
 Command line options can by accessed by `./geth help` and/or the following link: [Command Line Options](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
 
 ## First Boot
@@ -69,7 +91,7 @@ On PrivateNet, geth needs to be configured by specifying appropriate flags and c
 
 Should disable node discovery so that other nodes on the internet can not discover your private network and is truly private.
 
-### Netword ID
+### Network ID
 Network ID can be any positive number except 1 and 3. 1 and 3 are already in use by MainNet and TestNet respectively.
 
 Network ID 786 was chosen as an example in the book.
@@ -136,8 +158,8 @@ I searched for an answer and came across [this helpful answer.](https://ethereum
 
 Since I have Geth version 1.7.0, I needed to use an updated json file.
 
-## PrivateNet (Ethereum Version 1.7.0 - Unstable)
-[Link](https://github.com/ethereum/go-ethereum/wiki/Private-network)
+## PrivateNet (Ethereum Version 1.7.0 Unstable)
+[Private Network Set Up](https://github.com/ethereum/go-ethereum/wiki/Private-network)
 
 `genesis170.json` file
 ```
@@ -177,3 +199,15 @@ Set network ID. Future runs of geth on this data directory will use the genesis 
 
 `./geth --datadir ~/.ethereum/privatenet --networkid yyy console`
 
+[JavaScript Console Commands](https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#eth)
+
+After starting the JavaScript environment you can check to see if the other nodes are connected to each other on the private blockchain by running
+
+`admin.peers`
+
+## Extra Info
+To install a GUI for any device you can use [LXDE](http://lxde.org/). To install, run the following commands. Each of them will take some time. LXDE package very likely depends on the [XORG](https://www.x.org/wiki/) package.
+
+`sudo apt-get install xorg`
+
+`sudo apt-get install lxde`
