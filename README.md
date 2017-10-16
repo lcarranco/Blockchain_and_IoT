@@ -71,7 +71,7 @@ Here is the [link](https://raspberrypi.stackexchange.com/a/61080) where I found 
 ## Description of Different Ethereum Networks
 
 ### MainNet
-MainNet is the current live network of ethereum. The current version of MainNet is __Homestead__
+MainNet is the current live network of ethereum. The current version of MainNet is __Metropolis__
 
 ### TestNet (Ropsten)
 Used by developers or users as a test platform to test smart contrats and other blockchain-related proposals.
